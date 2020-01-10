@@ -1,4 +1,7 @@
 #!/usr/bin/python
+#
+# Store OpenStack hypervisor statistics in InfluxDB
+# Xand Meaden, King's College London
 
 import datetime
 import influxdb
