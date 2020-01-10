@@ -76,7 +76,7 @@ for hypervisor in hypervisors:
 payload = []
 for reading in metrics.keys():
     for item in metrics[reading]:
-        payload.append({'measurement': '%s_%s' % (reading, item), 'time': now, 'fields': {item: float(metrics[reading][item])}, 'tags': {'item': item}})
+        payload.append({'measurement': '%s_%s' % (reading, item), 'time': now, 'fields': {reading: float(metrics[reading][item])}, 'tags': {'item': item}})
 
 try:
     influx = influxdb.InfluxDBClient(host=os.environ['INFLUX_HOST'], port=os.environ['INFLUX_PORT'], username=os.environ['INFLUX_USERNAME'], password=os.environ['INFLUX_PASSWORD'], ssl=True, verify_ssl=True)
